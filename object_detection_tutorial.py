@@ -21,12 +21,20 @@ from collections import defaultdict
 from io import StringIO
 from matplotlib import pyplot as plt
 from PIL import Image
-
+import socket
+import pickle
+import struct
 import cv2
 
-#cap = cv2.VideoCapture(0)
+#cap = cv2.VideoCapture()
+cap = cv2.VideoCapture("tcp://172.16.20.189:5000/")
 
-videocapture cap("/dev/stdin")
+#cap.open("~/Videos/2018-01-07_14-23-23.mp4")
+#cap.open("rtp://172.16.39.36:8000/");
+
+
+#clientsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#clientsocket.connect(('172.16.20.189', 9000))
 
 if tf.__version__ < '1.4.0':
   raise ImportError('Please upgrade your tensorflow installation to v1.4.* or later!')
@@ -40,9 +48,6 @@ sys.path.append("..")
 
 # ## Object detection imports
 # Here are the imports from the object detection module.
-
-# In[3]:
-
 
 from utils import label_map_util
 
